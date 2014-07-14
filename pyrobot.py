@@ -452,7 +452,7 @@ class Roomba(object):
 
   def __init__(self, tty='/dev/ttyUSB0'):
     self.tty = tty
-    self.sci = SerialCommandInterface(tty, 57600)
+    self.sci = SerialCommandInterface(tty, 115200)
     self.sci.AddOpcodes(ROOMBA_OPCODES)
     self.sensors = RoombaSensors(self)
     self.safe = True
@@ -551,6 +551,42 @@ class Roomba(object):
     self.sci.start()
     time.sleep(0.5)
     self.sci.force_seeking_dock()
+	
+  def Clean(self):
+    """Start Cleanning"""
+    self.sci.start()
+    time.sleep(0.5)
+    self.sci.clean()	
+	
+  def Spot(self):
+    """Start Spot Mode"""
+    self.sci.start()
+    time.sleep(0.5)
+    self.sci.spot()
+	
+  def Max(self):
+    """Max mode"""
+    self.sci.start()
+    time.sleep(0.5)
+    self.sci.max()
+	
+  def Power(self):
+    """Power"""
+    self.sci.start()
+    time.sleep(0.5)
+    self.sci.power()
+	
+  def Start(self):
+    """Start"""
+    self.sci.start()
+    time.sleep(0.5)
+    self.sci.start()
+	
+  def Wake(self):
+    """Wake"""
+    self.sci.start()
+    time.sleep(0.5)
+    self.sci.wake()
 
 
 class CreateSensors(RoombaSensors):
