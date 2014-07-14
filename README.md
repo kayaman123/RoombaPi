@@ -5,11 +5,8 @@ This project will include all of the code that for the RoombaPi Robot project. T
 * test-1.py      - Simple test to see that pyrobot.py works for controlling Roomba.
 * test-2.py      - Simple test to verify reading sensor inputs.
 * RoombaPi.py    - Simple teleop using WebIOPi. 
-* streamPiCAM.sh - Starts video steam from an attached RaspberryPi Camera
+* cam.sh - Starts video steam from an attached RaspberryPi Camera
 * startup.sh     - Starts both RoombaPi.py and streamPiCAM.sh
-
-
-More to follow...
 
 For current status and documentation, go here: https://github.com/mirobotclub/RoombaPi/wiki
 
