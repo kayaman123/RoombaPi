@@ -95,13 +95,36 @@ def stop():
     r.Stop()
     #left_stop()
     #right_stop()
+	
+def dock():
+    r.Dock()
+    #left_stop()
+    #right_stop()
+
+def clean():
+    r.Clean()
+
+def spot():
+    r.Spot()
+	
+def control():
+    r.Control()
+	
+def power():
+    r.Power()
+	
+def start():
+    r.Start()
+	
+def wake():
+    r.Wake()
     
 #  loop which toggles LED attached to GPIO 24 every 5 seconds
 def loop():
     GPIO.output(24, not GPIO.input(24))
     time.sleep(5)        
 
-def MacroWithArgs(arg1, arg2):
+def MacroWithArgs(arg0, arg1, arg2):
     r.sensors.GetAll()
     voltage = r.sensors['voltage']/1000.00
     capacity = r.sensors['capacity']
@@ -126,8 +149,8 @@ GPIO.setFunction(24, GPIO.OUT)
 #stop()
 
 # Init serial 
-r = pyrobot.Roomba(tty = '/dev/ttyAMA0')
-#r.sci.Wake()
+r = pyrobot.Roomba(tty = '/dev/ttyUSB0')
+r.sci.Wake()
 r.Control()
 
 # Do a little POST dance
@@ -157,6 +180,13 @@ server.addMacro(go_backward)
 server.addMacro(turn_left)
 server.addMacro(turn_right)
 server.addMacro(stop)
+server.addMacro(clean)
+server.addMacro(spot)
+server.addMacro(dock)
+server.addMacro(control)
+server.addMacro(power)
+server.addMacro(start)
+server.addMacro(wake)
 server.addMacro(led_on)
 server.addMacro(led_off)
 server.addMacro(MacroWithArgs)
