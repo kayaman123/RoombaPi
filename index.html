@@ -23,6 +23,27 @@
 		
 		button = webiopi().createButton("bt_down", "\\/", go_backward, stop);
 		$("#down").append(button);
+		
+		button = webiopi().createButton("clean", "clean", clean, stop);
+		$("#down1").append(button);
+		
+		button = webiopi().createButton("dock", "dock", dock, stop);
+		$("#down1").append(button);
+		
+		button = webiopi().createButton("spot", "spot", spot, stop);
+		$("#down1").append(button);
+		
+		button = webiopi().createButton("power", "power", power, stop);
+		$("#down1").append(button);
+		
+		button = webiopi().createButton("control", "control", control, stop);
+		$("#down1").append(button);
+		
+		button = webiopi().createButton("start", "start", start, stop);
+		$("#down1").append(button);
+		
+		button = webiopi().createButton("wake", "wake", wake, stop);
+		$("#down1").append(button);
 	}
 	
 	function go_forward() {
@@ -44,7 +65,35 @@
 	function stop() {
 		webiopi().callMacro("stop");
 	}
+	
+	function clean() {
+		webiopi().callMacro("clean");
+	}
+	
+	function spot() {
+		webiopi().callMacro("spot");
+	}
+	
+	function dock() {
+		webiopi().callMacro("dock");
+	}
 
+	function power() {
+		webiopi().callMacro("power");
+	}
+	
+	function control() {
+		webiopi().callMacro("control");
+	}
+	
+	function start() {
+		webiopi().callMacro("start");
+	}
+	
+	function wake() {
+		webiopi().callMacro("wake");
+	}
+	
         function led_on() {
                 webiopi().callMacro("led_on");
         }
@@ -59,7 +108,7 @@
 	//This auto calls the following macros instead of pressing a button or something.
 	setInterval ( "callMacro()", 9000); 
 	function callMacro() { 
-		var args = [1,2,] // or whatever you want 
+		var args = [0,1,2,] // or whatever you want 
 		// call MacroWithArgs(arg) 
 		webiopi().callMacro("MacroWithArgs", args, macroCallback); 
 	}
@@ -71,6 +120,7 @@
  	} 
 		
 	</script>
+	
 	<style type="text/css">
 		button {
 			margin: 5px 5px 5px 5px;
@@ -83,11 +133,16 @@
 	</style>
 </head>
 <body>
+
+<a href="?text=true">Send Text</a>
+
 	<div id="content" align="center">
-		<img width="640" height="480" src="http://raspberrypi.local:8080/?action=stream"><br/>
+		<img width="640" height="480" src="http://192.168.0.18:8080/?action=stream"><br/>
 		<div id="up"></div>
 		<div id="middle"></div>
 		<div id="down"></div>
+		<div id="down1"></
+		
 
 		<table>
 			<tr> 
